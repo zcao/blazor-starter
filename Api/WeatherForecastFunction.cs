@@ -36,6 +36,16 @@ namespace ApiIsolated
             return response;
         }
 
+        [Function("Test")]
+        public HttpResponseData Test([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req)
+        {
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.WriteAsJsonAsync(new string[] {"Z","C" });
+
+            return response;
+        }
+
         private string GetSummary(int temp)
         {
             var summary = "Mild";
